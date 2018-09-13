@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b794a4f-a233-4530-99ff-eaa89c6ca05a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/records.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raw.py" afterPath="$PROJECT_DIR$/raw.py" />
     </list>
@@ -28,11 +27,21 @@
       <file leaf-file-name="raw.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <state relative-caret-position="364">
+              <caret line="173" column="19" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="records.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/records.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -430,7 +439,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -440,7 +449,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -450,7 +459,7 @@
         <state relative-caret-position="3683">
           <caret line="129" column="49" selection-start-line="129" selection-start-column="49" selection-end-line="129" selection-end-column="49" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -462,7 +471,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -479,12 +488,20 @@
     <entry file="file://$PROJECT_DIR$/cosine.py" />
     <entry file="file://$PROJECT_DIR$/newNew.py" />
     <entry file="file://$PROJECT_DIR$/Assignment_3.py" />
+    <entry file="file://$PROJECT_DIR$/records.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/raw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        <state relative-caret-position="364">
+          <caret line="173" column="19" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
