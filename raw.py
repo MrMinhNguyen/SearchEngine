@@ -14,7 +14,6 @@ from nltk.corpus import stopwords
 #     c = a.intersection(b)
 #     return float(len(c)) / (len(a) + len(b) - len(c))
 
-
 def handleSpecialChar(target):
     temp = ''
     for char in target:
@@ -54,9 +53,6 @@ def synonym(list, number):
                 limit += 1
 
     return synonyms
-
-searchString = input("Give me your string:\n")
-searchList = searchString.split(' ')
 
 # a jap bike and call myself axis motors tuba irwin
 def similarity(synNum, filterNum):
@@ -110,10 +106,21 @@ def similarity(synNum, filterNum):
     top = Counter(resultDict).most_common(filterNum)
     print(top)
 
-start = timer()
-numSyn = 3
-numFilter = 10
-similarity(numSyn, numFilter)
-end = timer()
-time = end - start
-print(time, " seconds")
+
+running = True
+
+while (running):
+    searchString = input("Give me your string:\n")
+    searchList = searchString.split(' ')
+
+    start = timer()
+    numSyn = 3
+    numFilter = 10
+    similarity(numSyn, numFilter)
+    end = timer()
+    time = end - start
+    print(time, " seconds")
+
+    search_again = input("Search again? (Type y or yes to search again, otherwise type anything) \n")
+    if not search_again.lower().startswith('y'):
+        break
