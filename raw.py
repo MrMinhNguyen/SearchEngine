@@ -1,5 +1,6 @@
 from collections import Counter
 from timeit import default_timer as timer
+import datetime 
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -13,6 +14,12 @@ from nltk.corpus import stopwords
 #     b = set(b)
 #     c = a.intersection(b)
 #     return float(len(c)) / (len(a) + len(b) - len(c))
+
+class Search:
+    def __init__(self, keywords):
+        self.keywords = keywords
+        self.time = datetime.datetime.now()
+
 
 def handleSpecialChar(target):
     temp = ''
@@ -108,11 +115,14 @@ def similarity(synNum, filterNum):
 
 
 running = True
+current_searches = []
 
 while (running):
     searchString = input("Give me your string:\n")
     searchList = searchString.split(' ')
 
+    new_search = Search(searchList)
+    
     start = timer()
     numSyn = 3
     numFilter = 10
@@ -121,6 +131,11 @@ while (running):
     time = end - start
     print(time, " seconds")
 
+    for search in current_searches: 
+        if set(searchList) & set(search.keywords) == set(searchList):
+            print("You might be trying to search for the query: ", ' '.join(search.keywords))
+
+    current_searches.append(new_search)
     search_again = input("Search again? (Type y or yes to search again, otherwise type anything) \n")
     if not search_again.lower().startswith('y'):
         break
