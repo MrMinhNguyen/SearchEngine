@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 from nltk.corpus import wordnet
 from nltk.corpus import stopwords
-
+from nltk.collocations import BigramCollocationFinder
 
 # def jaccard(a, b):
 #     a = set(a)
@@ -61,6 +61,29 @@ def synonym(list, number):
 
     return synonyms
 
+def collocations(text):
+    bigram_measures = nltk.collocations.BigramAssocMeasures()
+    length = len(text.split())
+    finder = BigramCollocationFinder.from_words(nltk.word_tokenize(text))
+    collocations_result = finder.nbest(bigram_measures.pmi, length)
+    return collocations_result
+
+def recommend(query, current_searches):
+    search_history_keywords = ''
+    split_query = query.split(' ')
+    for search in current_searches:
+        search_string = ' '.join(search.keywords)
+        search_history_keywords += search_string
+        search_history_keywords += ' '
+
+    query_collocations = collocations(search_history_keywords)
+    query_collocations = query_collocations[0:4]
+
+    for collocation in query_collocations:
+        for word in split_query:
+            if word in collocation:
+                print("You might be searching for: ", ' '.join(list(collocation)))
+
 # a jap bike and call myself axis motors tuba irwin
 def similarity(synNum, filterNum):
     synList = synonym(searchList, synNum)
@@ -86,7 +109,7 @@ def similarity(synNum, filterNum):
 
         combine = [searchString, line]
 
-        vectorizer = TfidfVectorizer(stop_words='english', ngram_range=(1,2))
+        vectorizer = TfidfVectorizer(stop_words='english', ngram_range=(1, 2))
 
         vectors = vectorizer.fit_transform(combine)
         array_cos = cosine_similarity(vectors[0], vectors[1])[0][0]
@@ -134,9 +157,11 @@ while (running):
     time = end - start
     print(time, " seconds")
 
-    for search in current_searches: 
-        if set(searchList) & set(search.keywords) == set(searchList):
-            print("You might be trying to search for the query: ", ' '.join(search.keywords))
+    # for search in current_searches:
+    #     if set(searchList) & set(search.keywords) == set(searchList):
+    #         print("You might be trying to search for the query: ", ' '.join(search.keywords))
+
+    recommend(searchString, current_searches)
 
     current_searches.append(new_search)
     search_again = input("Search again? (Type y or yes to search again, otherwise type anything) \n")
