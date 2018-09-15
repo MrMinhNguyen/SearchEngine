@@ -85,12 +85,15 @@ def similarity(synNum, filterNum):
         # jaccardList.append(jac)
 
         combine = [searchString, line]
-        vectors = TfidfVectorizer().fit_transform(combine)
+
+        vectorizer = TfidfVectorizer(stop_words='english', ngram_range=(1,2))
+
+        vectors = vectorizer.fit_transform(combine)
         array_cos = cosine_similarity(vectors[0], vectors[1])[0][0]
         dict[i] = array_cos
 
         combineSyn = [synString, line]
-        vectors_syn = TfidfVectorizer().fit_transform(combineSyn)
+        vectors_syn = vectorizer.fit_transform(combineSyn)
         array_cos_syn = cosine_similarity(vectors_syn[0], vectors_syn[1])[0][0]
         dictSyn[i] = array_cos_syn
 
@@ -122,7 +125,7 @@ while (running):
     searchList = searchString.split(' ')
 
     new_search = Search(searchList)
-    
+
     start = timer()
     numSyn = 3
     numFilter = 10
