@@ -20,7 +20,7 @@
 #
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn import linear_model
+from sklearn import linear_model, model_selection
 from sklearn.cluster import KMeans
 import pandas as pd
 from mpl_toolkits.mplot3d import Axes3D
@@ -34,6 +34,8 @@ from mpl_toolkits.mplot3d import Axes3D
 # - The number of synonym(s) per each word that the search engine find for its search string
 # - The filter number of top results to be returned
 # - The amount of time it takes for each search
+from sklearn.linear_model import LinearRegression
+
 reading = open("records.txt", "r")
 
 # This list is the dataset that will be trained and used for prediction later
@@ -61,7 +63,7 @@ kmeans = KMeans(n_clusters=4)
 kmeans.fit(learn)
 
 # Print out the centroid of the clusters
-print(kmeans.cluster_centers_)
+print('Centroids:\n', kmeans.cluster_centers_)
 
 # Create a 3d graph to represent the clusters and the datapoints
 fig = plt.figure()
@@ -104,12 +106,18 @@ X = learn[['syn_num','filter_num']]
 Y = learn['time']
 
 # Generate the tool to suppoert Linear Regression
-regr = linear_model.LinearRegression()
+regr = LinearRegression()
 
 # Apply Linear Regression onto the dataset
 regr.fit(X, Y)
 
+# Print out the regression function
+print('\nRegression Function:')
+print('time = ', regr.intercept_, ' + (', regr.coef_[0], 'x syn_num) + (', regr.coef_[1], 'x filter_num)')
+
+
 # Try to make a prediction using given number of synonyms and filter number
 new_syn_num = 11
 new_filter_num = 15
-print ('Time predicted: \n', regr.predict([[new_syn_num, new_filter_num]]))
+print('\nNumber of synonyms: ', new_syn_num, '\nFilter number: ', new_filter_num)
+print ('Time predicted: ', regr.predict([[new_syn_num, new_filter_num]])[0])
