@@ -92,7 +92,7 @@ def handleStopWords(target):
     # Create a new empty list to return back later
     temp = []
 
-    # For each element in the target lsit
+    # For each element in the target list
     for i in target:
         # If it's not a stop word then add it to the new list
         if i not in stopWords:
@@ -188,7 +188,9 @@ def recommend(query, current_searches, top):
             if word in collocation:
                 print("You might be searching for: ", ' '.join(list(collocation)))
 
-# a jap bike and call myself axis motors tuba irwin
+# Fetch the dataset
+newsgroups_train = fetch_20newsgroups(subset='train')
+
 # This is the similarity function which takes the number of synonyms per word and
 # the number of top results to return
 def similarity(synNum, filterNum):
@@ -197,9 +199,6 @@ def similarity(synNum, filterNum):
     synList = synonym(searchList, synNum)
     # Join that list to get it in string
     synString = ' '.join(synList)
-
-    # Fetch the dataset
-    newsgroups_train = fetch_20newsgroups(subset='train')
 
     # This dictionary stores the index of each line in the datset and
     # its similarity to the search string
